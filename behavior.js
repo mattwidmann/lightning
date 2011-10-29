@@ -11,9 +11,24 @@ document.body.addEventListener('touchend', function (event) {
 function updateTimer () {
     var currentTime = (new Date()).getTime()
 
-    var timeDifference = currentTime - startTime
-    document.getElementById('seconds').innerText = (timeDifference / 1000).toFixed(1).toString()
-    document.getElementById('miles').innerText = ((timeDifference / 1000) * speedOfSound).toFixed(1).toString()
+    var timeDifference = (currentTime - startTime) / 1000
+    var seconds = timeDifference.toFixed(1)
+    var miles = (timeDifference * speedOfSound).toFixed(1)
+
+    if (seconds == 1.0) {
+        document.getElementById('secondsText').innerText = 'second'
+    } else {
+        document.getElementById('secondsText').innerText = 'seconds'
+    }
+
+    if (miles == 1.0) {
+        document.getElementById('milesText').innerText = 'mile'
+    } else {
+        document.getElementById('milesText').innerText = 'miles'
+    }
+
+    document.getElementById('seconds').innerText = seconds.toString()
+    document.getElementById('miles').innerText = miles.toString()
 
     timeout = window.setTimeout(updateTimer, updateInterval)
 }

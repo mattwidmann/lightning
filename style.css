@@ -5,7 +5,7 @@ body {
     background-color: #333;
 }
 
-p span {
+p span#seconds, p span#miles {
     font-size: 3em;
     font-weight: bold;
 }
