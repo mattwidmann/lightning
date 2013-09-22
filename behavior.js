@@ -8,6 +8,10 @@ document.body.addEventListener('touchend', function (event) {
     if (timeout === null) { startTimer() } else { stopTimer() }
 })
 
+document.body.addEventListener('mouseup', function (event) {
+    if (timeout === null) { startTimer() } else { stopTimer() }
+})
+
 function updateTimer () {
     var currentTime = (new Date()).getTime()
 
